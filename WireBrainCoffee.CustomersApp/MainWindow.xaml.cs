@@ -24,10 +24,5 @@ namespace WireBrainCoffee.CustomersApp
         {
             InitializeComponent();
         }
-
-        private void ButtonAddCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            btnAddCustomer.Content = "Customer added!";
-        }
     }
 }
