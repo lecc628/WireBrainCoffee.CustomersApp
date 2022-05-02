@@ -47,7 +47,8 @@ namespace WireBrainCoffee.CustomersApp
                 mainGrid_CDC[MainGridLastColumn].Width = HiddenColumnWidth;
                 mainGrid_CDC[MainGridLastColumn].MinWidth = HiddenColumnMinWidth;
 
-                customerListGrid.SetValue(Grid.ColumnProperty, MainGridFirstColumn);
+                //customerListGrid.SetValue(Grid.ColumnProperty, MainGridFirstColumn);
+                Grid.SetColumn(customerListGrid, MainGridFirstColumn);
             }
             else
             {
@@ -59,7 +60,8 @@ namespace WireBrainCoffee.CustomersApp
                 mainGrid_CDC[MainGridFirstColumn].Width = HiddenColumnWidth;
                 mainGrid_CDC[MainGridFirstColumn].MinWidth = HiddenColumnMinWidth;
 
-                customerListGrid.SetValue(Grid.ColumnProperty, MainGridLastColumn);
+                //customerListGrid.SetValue(Grid.ColumnProperty, MainGridLastColumn);
+                Grid.SetColumn(customerListGrid, MainGridLastColumn);
             }
         }
     }
