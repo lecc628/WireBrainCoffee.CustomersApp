@@ -26,26 +26,26 @@ namespace WireBrainCoffee.CustomersApp
         public static readonly int MainGridFirstColumn = 0;
         public static readonly int MainGridLastColumn = 2;
 
-        private readonly ColumnDefinitionCollection mainGrid_CDC;
+        private readonly ColumnDefinitionCollection customerViewGrid_CDC;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            mainGrid_CDC = mainGrid.ColumnDefinitions;
+            customerViewGrid_CDC = customerViewGrid.ColumnDefinitions;
         }
 
         private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
         {
-            if (mainGrid_CDC[MainGridFirstColumn].MinWidth == HiddenColumnMinWidth)
+            if (customerViewGrid_CDC[MainGridFirstColumn].MinWidth == HiddenColumnMinWidth)
             {
                 /* Sets the customer list to the left side. */
 
-                mainGrid_CDC[MainGridFirstColumn].Width = mainGrid_CDC[MainGridLastColumn].Width;
-                mainGrid_CDC[MainGridFirstColumn].MinWidth = mainGrid_CDC[MainGridLastColumn].MinWidth;
+                customerViewGrid_CDC[MainGridFirstColumn].Width = customerViewGrid_CDC[MainGridLastColumn].Width;
+                customerViewGrid_CDC[MainGridFirstColumn].MinWidth = customerViewGrid_CDC[MainGridLastColumn].MinWidth;
 
-                mainGrid_CDC[MainGridLastColumn].Width = HiddenColumnWidth;
-                mainGrid_CDC[MainGridLastColumn].MinWidth = HiddenColumnMinWidth;
+                customerViewGrid_CDC[MainGridLastColumn].Width = HiddenColumnWidth;
+                customerViewGrid_CDC[MainGridLastColumn].MinWidth = HiddenColumnMinWidth;
 
                 //customerListGrid.SetValue(Grid.ColumnProperty, MainGridFirstColumn);
                 Grid.SetColumn(customerListGrid, MainGridFirstColumn);
@@ -54,11 +54,11 @@ namespace WireBrainCoffee.CustomersApp
             {
                 /* Sets the customer list to the right side. */
 
-                mainGrid_CDC[MainGridLastColumn].Width = mainGrid_CDC[MainGridFirstColumn].Width;
-                mainGrid_CDC[MainGridLastColumn].MinWidth = mainGrid_CDC[MainGridFirstColumn].MinWidth;
+                customerViewGrid_CDC[MainGridLastColumn].Width = customerViewGrid_CDC[MainGridFirstColumn].Width;
+                customerViewGrid_CDC[MainGridLastColumn].MinWidth = customerViewGrid_CDC[MainGridFirstColumn].MinWidth;
 
-                mainGrid_CDC[MainGridFirstColumn].Width = HiddenColumnWidth;
-                mainGrid_CDC[MainGridFirstColumn].MinWidth = HiddenColumnMinWidth;
+                customerViewGrid_CDC[MainGridFirstColumn].Width = HiddenColumnWidth;
+                customerViewGrid_CDC[MainGridFirstColumn].MinWidth = HiddenColumnMinWidth;
 
                 //customerListGrid.SetValue(Grid.ColumnProperty, MainGridLastColumn);
                 Grid.SetColumn(customerListGrid, MainGridLastColumn);

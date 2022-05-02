@@ -8,21 +8,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" MinHeight="360" Width="800" MinWidth="520" FontSize="20"
         d:DesignWidth="750" d:DesignHeight="500">
-    <Grid x:Name="mainGrid">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="250"/>
-            <ColumnDefinition Width="3*" MinWidth="250"/>
-            <ColumnDefinition Width="auto" MinWidth="0"/>
-        </Grid.ColumnDefinitions>
 
         <!-- Main menu -->
-        <Menu Grid.ColumnSpan="3" FontSize="20">
+        <Menu FontSize="20">
             <MenuItem Header="_View">
                 <MenuItem Header="_Customers"/>
                 <MenuItem Header="_Products"/>
@@ -30,44 +25,54 @@
         </Menu>
 
         <!-- Header -->
-        <controls:HeaderControl Grid.Row="1" Grid.ColumnSpan="3"/>
+        <controls:HeaderControl Grid.Row="1"/>
 
-        <!-- Customer list -->
-        <Grid x:Name="customerListGrid" Grid.Row="2" Grid.Column="0" Background="#777">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="10" Width="75">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Images/add.png" Height="18" Margin="0 0 5 0"/>
-                        <TextBlock Text="Add"/>
-                    </StackPanel>
-                </Button>
-                <Button Content="Delete" Width="75" Margin="0 10 10 10"/>
-                <Button Margin="0 10 10 10" Click="ButtonMoveNavigation_Click">
-                    <Image Source="/Images/move.png" Height="18"/>
-                </Button>
+        <!-- Customer view -->
+        <Grid x:Name="customerViewGrid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="250"/>
+                <ColumnDefinition Width="3*" MinWidth="250"/>
+                <ColumnDefinition Width="auto" MinWidth="0"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Customer list -->
+            <Grid x:Name="customerListGrid" Grid.Column="0" Background="#777">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="10" Width="75">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/add.png" Height="18" Margin="0 0 5 0"/>
+                            <TextBlock Text="Add"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Content="Delete" Width="75" Margin="0 10 10 10"/>
+                    <Button Margin="0 10 10 10" Click="ButtonMoveNavigation_Click">
+                        <Image Source="/Images/move.png" Height="18"/>
+                    </Button>
+                </StackPanel>
+                <ListView Grid.Row="1" Margin="10 0 10 10">
+                    <ListViewItem>Julia</ListViewItem>
+                    <ListViewItem>Alex</ListViewItem>
+                    <ListViewItem>Thomas</ListViewItem>
+                </ListView>
+            </Grid>
+
+            <!-- Customer detail -->
+            <StackPanel Grid.Column="1" Margin="10">
+                <Label>Firstname:</Label>
+                <TextBox/>
+                <Label>Lastname:</Label>
+                <TextBox/>
+                <CheckBox Content="Is developer" Margin="0 10 0 0"/>
             </StackPanel>
-            <ListView Grid.Row="1" Margin="10 0 10 10">
-                <ListViewItem>Julia</ListViewItem>
-                <ListViewItem>Alex</ListViewItem>
-                <ListViewItem>Thomas</ListViewItem>
-            </ListView>
+
         </Grid>
 
-        <!-- Customer detail -->
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
-            <Label>Firstname:</Label>
-            <TextBox/>
-            <Label>Lastname:</Label>
-            <TextBox/>
-            <CheckBox Content="Is developer" Margin="0 10 0 0"/>
-        </StackPanel>
-
         <!-- Statusbar -->
-        <StatusBar Grid.Row="3" Grid.ColumnSpan="3">
+        <StatusBar Grid.Row="3">
             <StatusBarItem Content=" (c) Wired Brain Coffee" FontSize="20"/>
         </StatusBar>
     </Grid>
