@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WireBrainCoffee.CustomersApp.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="76" d:DesignWidth="800">
     <StackPanel Background="#F05A28">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Image Source="/Images/logo.png" Width="100" Margin="0 5 5 5"/>

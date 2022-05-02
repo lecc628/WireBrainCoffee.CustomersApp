@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace WireBrainCoffee.CustomersApp.Controls
 {
     /// <summary>
-    /// Interaction logic for HeaderControl.xaml
+    /// Interaction logic for HeaderControl.xaml.
     /// </summary>
     public partial class HeaderControl : UserControl
     {
