@@ -33,7 +33,6 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
                     Customers.Add(customer);
                 }
             }
-
         }
     }
 }

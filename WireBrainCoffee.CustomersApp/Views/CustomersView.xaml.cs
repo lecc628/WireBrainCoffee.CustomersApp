@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WireBrainCoffee.CustomersApp.Data;
+using WireBrainCoffee.CustomersApp.ViewModel;
 
 namespace WireBrainCoffee.CustomersApp.Views
 {
@@ -23,13 +14,22 @@ namespace WireBrainCoffee.CustomersApp.Views
         public static readonly int CustomersViewFirstColumn = 0;
         public static readonly int CustomersViewLastColumn = 2;
 
+        private readonly CustomersViewModel customersViewModel;
         private readonly ColumnDefinitionCollection customersViewGrid_CDC;
 
         public CustomersView()
         {
             InitializeComponent();
+            customersViewModel = new CustomersViewModel(new CustomerDataProvider());
+            DataContext = customersViewModel;
+            Loaded += CustomersView_Loaded;
 
             customersViewGrid_CDC = customersViewGrid.ColumnDefinitions;
+        }
+
+        private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
+        {
+            await customersViewModel.LoadAsync();
         }
 
         private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
