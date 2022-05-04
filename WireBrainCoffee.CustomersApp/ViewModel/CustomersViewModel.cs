@@ -1,14 +1,12 @@
-﻿using System.ComponentModel;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using WireBrainCoffee.CustomersApp.Data;
 using WireBrainCoffee.CustomersApp.Model;
-using System.Runtime.CompilerServices;
 
 namespace WireBrainCoffee.CustomersApp.ViewModel
 {
-    public class CustomersViewModel : INotifyPropertyChanged
+    public class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider _customerDataProvider;
         private Customer? _selectedCustomer;
@@ -16,16 +14,6 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
-        }
-
-        //
-        // Summary:
-        //     Occurs when a property value changes.
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName]string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public ObservableCollection<Customer> Customers { get; } = new();
