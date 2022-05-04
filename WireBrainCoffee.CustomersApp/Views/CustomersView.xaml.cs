@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using WireBrainCoffee.CustomersApp.Data;
 using WireBrainCoffee.CustomersApp.ViewModel;
@@ -60,6 +59,11 @@ namespace WireBrainCoffee.CustomersApp.Views
                 //customersListGrid.SetValue(Grid.ColumnProperty, CustomersViewLastColumn);
                 Grid.SetColumn(customersListGrid, CustomersViewLastColumn);
             }
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            customersViewModel.Add();
         }
     }
 }
