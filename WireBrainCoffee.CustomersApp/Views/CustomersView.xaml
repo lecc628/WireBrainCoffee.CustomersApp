@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:WireBrainCoffee.CustomersApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="customersViewGrid">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="250"/>
+            <ColumnDefinition Width="{Binding GridFirstColumnWidth, Mode=OneWay}" MinWidth="{Binding GridFirstColumnMinWidth, Mode=OneWay}"/>
             <ColumnDefinition Width="3*" MinWidth="250"/>
-            <ColumnDefinition Width="auto" MinWidth="0"/>
+            <ColumnDefinition Width="{Binding GridLastColumnWidth, Mode=OneWay}" MinWidth="{Binding GridLastColumnMinWidth, Mode=OneWay}"/>
         </Grid.ColumnDefinitions>
 
         <!-- Customers list -->
-        <Grid x:Name="customersListGrid" Grid.Column="0" Background="#777">
+        <Grid Grid.Column="{Binding NavigationColumn, Mode=OneWay}" Background="#777">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
