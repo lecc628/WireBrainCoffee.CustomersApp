@@ -2,10 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WireBrainCoffee.CustomersApp.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:WireBrainCoffee.CustomersApp.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <converters:NavigationSideToGridColumnConverter x:Key="NavigationSideToGridColumnConv"/>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="{Binding GridFirstColumnWidth, Mode=OneWay}" MinWidth="{Binding GridFirstColumnMinWidth, Mode=OneWay}"/>
@@ -14,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Customers list -->
-        <Grid Grid.Column="{Binding NavigationColumn, Mode=OneWay}" Background="#777">
+        <Grid Grid.Column="{Binding NavigationSide, Mode=OneWay, Converter={StaticResource ResourceKey=NavigationSideToGridColumnConv}}" Background="#777">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
@@ -48,4 +53,5 @@
         </StackPanel>
 
     </Grid>
+
 </UserControl>

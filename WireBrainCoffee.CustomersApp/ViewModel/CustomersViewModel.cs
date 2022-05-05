@@ -9,9 +9,6 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
 {
     public class CustomersViewModel : ViewModelBase
     {
-        public static readonly int CustomersViewFirstColumn = 0;
-        public static readonly int CustomersViewLastColumn = 2;
-
         private readonly ICustomerDataProvider _customerDataProvider;
 
         private CustomerItemViewModel? _selectedCustomer;
@@ -19,7 +16,7 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
         private double _gridFirstColumnMinWidth;
         private GridLength _gridLastColumnWidth;
         private double _gridLastColumnMinWidth;
-        private int _navigationColumn;
+        private NavigationSideOption _navigationSide;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
@@ -30,7 +27,7 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             GridFirstColumnMinWidth = 250.0;
             GridLastColumnWidth = GridLength.Auto;
             GridLastColumnMinWidth = 0.0;
-            NavigationColumn = CustomersViewFirstColumn;
+            NavigationSide = NavigationSideOption.Left;
         }
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
@@ -85,12 +82,12 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        public int NavigationColumn
+        public NavigationSideOption NavigationSide
         {
-            get => _navigationColumn;
+            get => _navigationSide;
             private set
             {
-                _navigationColumn = value;
+                _navigationSide = value;
                 OnPropertyChanged();
             }
         }
@@ -132,8 +129,8 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
                 GridLastColumnWidth = Helpful.HiddenColumnWidth;
                 GridLastColumnMinWidth = Helpful.HiddenColumnMinWidth;
 
-                //customersListGrid.SetValue(Grid.ColumnProperty, CustomersViewFirstColumn);
-                NavigationColumn = CustomersViewFirstColumn;
+                //customersListGrid.SetValue(Grid.ColumnProperty, NavigationSideOption.Left);
+                NavigationSide = NavigationSideOption.Left;
             }
             else
             {
@@ -145,8 +142,8 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
                 GridFirstColumnWidth = Helpful.HiddenColumnWidth;
                 GridFirstColumnMinWidth = Helpful.HiddenColumnMinWidth;
 
-                //customersListGrid.SetValue(Grid.ColumnProperty, CustomersViewLastColumn);
-                NavigationColumn = CustomersViewLastColumn;
+                //customersListGrid.SetValue(Grid.ColumnProperty, NavigationSideOption.Right);
+                NavigationSide = NavigationSideOption.Right;
             }
         }
     }

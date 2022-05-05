@@ -10,4 +10,10 @@ namespace WireBrainCoffee.CustomersApp
         public static readonly GridLength HiddenColumnWidth = GridLength.Auto;
         public static readonly double HiddenColumnMinWidth = 0.0;
     }
+
+    public enum NavigationSideOption
+    {
+        Left,
+        Right
+    }
 }
