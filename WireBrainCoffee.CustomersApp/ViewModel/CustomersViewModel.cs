@@ -23,17 +23,23 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
         {
             _customerDataProvider = customerDataProvider;
 
+            AddCommand = new DelegateCommand(Add);
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+
             SelectedCustomer = null;
             GridFirstColumnWidth = new GridLength(1, GridUnitType.Star);
             GridFirstColumnMinWidth = 250.0;
             GridLastColumnWidth = GridLength.Auto;
             GridLastColumnMinWidth = 0.0;
             NavigationSide = NavigationSideOption.Left;
-
-            AddCommand = new DelegateCommand(Add);
-            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
-
         }
+
+        public DelegateCommand AddCommand { get; }
+
+        public DelegateCommand DeleteCommand { get; }
+
+        public DelegateCommand MoveNavigationCommand { get; }
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
 
@@ -44,6 +50,7 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             {
                 _selectedCustomer = value;
                 OnPropertyChanged();
+                DeleteCommand.OnCanExecuteChanged();
             }
         }
 
@@ -97,10 +104,6 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        public DelegateCommand AddCommand { get; }
-
-        public DelegateCommand MoveNavigationCommand { get; }
-
         public async Task LoadAsync()
         {
             if (Customers.Any())
@@ -125,6 +128,21 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             Customers.Add(customer);
             SelectedCustomer = customer;
         }
+
+        public void Delete(object? parameter)
+        {
+            if (SelectedCustomer is not null)
+            {
+                var pos = Customers.IndexOf(SelectedCustomer);
+
+                Customers.RemoveAt(pos);
+
+                if (pos == Customers.Count) --pos;
+                SelectedCustomer = (pos == -1) ? null : Customers[pos];
+            }
+        }
+
+        public bool CanDelete(object? parameter) => SelectedCustomer is not null;
 
         private void MoveNavigation(object? parameter)
         {
