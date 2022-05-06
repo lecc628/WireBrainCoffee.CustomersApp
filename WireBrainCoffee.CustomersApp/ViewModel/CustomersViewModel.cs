@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WireBrainCoffee.CustomersApp.Command;
 using WireBrainCoffee.CustomersApp.Data;
 using WireBrainCoffee.CustomersApp.Model;
 
@@ -28,6 +29,10 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             GridLastColumnWidth = GridLength.Auto;
             GridLastColumnMinWidth = 0.0;
             NavigationSide = NavigationSideOption.Left;
+
+            AddCommand = new DelegateCommand(Add);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+
         }
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
@@ -92,6 +97,10 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             }
         }
 
+        public DelegateCommand AddCommand { get; }
+
+        public DelegateCommand MoveNavigationCommand { get; }
+
         public async Task LoadAsync()
         {
             if (Customers.Any())
@@ -110,14 +119,14 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        public void Add()
+        private void Add(object? parameter)
         {
             var customer = new CustomerItemViewModel(new Customer { FirstName = "New" });
             Customers.Add(customer);
             SelectedCustomer = customer;
         }
 
-        public void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
             if (GridFirstColumnMinWidth == Helpful.HiddenColumnMinWidth)
             {
