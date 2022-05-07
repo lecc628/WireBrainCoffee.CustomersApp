@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:WireBrainCoffee.CustomersApp.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="76" d:DesignWidth="800">
-    <StackPanel Background="#F05A28">
+    <StackPanel Background="{StaticResource HeaderBackgroundBrush}">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Image Source="/Images/logo.png" Width="100" Margin="0 5 5 5"/>
-            <TextBlock Text="Customers App" FontSize="30" Foreground="White" VerticalAlignment="Center"/>
+            <TextBlock Text="Customers App" FontSize="30" Foreground="{StaticResource HeaderForegroundBrush}" VerticalAlignment="Center"/>
             <TextBlock Text="Version 1.0" FontSize="16" Foreground="#333333" VerticalAlignment="Bottom" Margin="10 0 0 22"/>
         </StackPanel>
     </StackPanel>
