@@ -50,9 +50,12 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             {
                 _selectedCustomer = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(IsCustomerSelected));
                 DeleteCommand.OnCanExecuteChanged();
             }
         }
+
+        public bool IsCustomerSelected => SelectedCustomer is not null;
 
         public GridLength GridFirstColumnWidth
         {
