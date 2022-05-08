@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using WireBrainCoffee.CustomersApp.Data;
-using WireBrainCoffee.CustomersApp.ViewModel;
+﻿using System.Windows.Controls;
 
 namespace WireBrainCoffee.CustomersApp.Views
 {
@@ -10,20 +7,9 @@ namespace WireBrainCoffee.CustomersApp.Views
     /// </summary>
     public partial class CustomersView : UserControl
     {
-        private readonly CustomersViewModel customersViewModel;
-
         public CustomersView()
         {
             InitializeComponent();
-
-            customersViewModel = new CustomersViewModel(new CustomerDataProvider());
-            DataContext = customersViewModel;
-            Loaded += CustomersView_Loaded;
-        }
-
-        private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
-        {
-            await customersViewModel.LoadAsync();
         }
     }
 }
