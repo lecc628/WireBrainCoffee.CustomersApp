@@ -107,7 +107,7 @@ namespace WireBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        public async Task LoadAsync()
+        public override async Task LoadAsync()
         {
             if (Customers.Any())
             {
