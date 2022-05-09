@@ -28,8 +28,12 @@
 
         <Menu FontSize="20">
             <MenuItem Header="_View">
-                <MenuItem Header="_Customers" Command="{Binding SelectViewModelCommand, Mode=OneWay}"/>
-                <MenuItem Header="_Products" Command="{Binding SelectViewModelCommand, Mode=OneWay}"/>
+                <MenuItem Header="_Customers"
+                          Command="{Binding SelectViewModelCommand, Mode=OneWay}"
+                          CommandParameter="{Binding CustomersViewModel, Mode=OneWay}"/>
+                <MenuItem Header="_Products"
+                          Command="{Binding SelectViewModelCommand, Mode=OneWay}"
+                          CommandParameter="{Binding ProductsViewModel, Mode=OneWay}"/>
             </MenuItem>
         </Menu>
 
