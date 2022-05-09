@@ -9,6 +9,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" MinHeight="360" Width="800" MinWidth="520" FontSize="20"
         d:DesignWidth="750" d:DesignHeight="500">
+
+    <Window.Resources>
+        <DataTemplate x:Key="CustomersViewModelTemplate">
+            <views:CustomersView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -26,7 +32,7 @@
 
         <controls:HeaderControl Grid.Row="1"/>
 
-        <views:CustomersView Grid.Row="2" DataContext="{Binding SelectedViewModel, Mode=OneWay}"/>
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel, Mode=OneWay}" ContentTemplate="{StaticResource CustomersViewModelTemplate}"/>
 
         <StatusBar Grid.Row="3">
             <StatusBarItem Content=" (c) Wired Brain Coffee" FontSize="20"/>
