@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using WireBrainCoffee.CustomersApp.Data;
-using WireBrainCoffee.CustomersApp.ViewModel;
+using WireBrainCoffee.CustomersApp.ViewModels;
 
 namespace WireBrainCoffee.CustomersApp
 {

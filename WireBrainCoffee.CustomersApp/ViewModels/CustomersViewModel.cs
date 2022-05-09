@@ -6,7 +6,7 @@ using WireBrainCoffee.CustomersApp.Command;
 using WireBrainCoffee.CustomersApp.Data;
 using WireBrainCoffee.CustomersApp.Model;
 
-namespace WireBrainCoffee.CustomersApp.ViewModel
+namespace WireBrainCoffee.CustomersApp.ViewModels
 {
     public class CustomersViewModel : ViewModelBase
     {

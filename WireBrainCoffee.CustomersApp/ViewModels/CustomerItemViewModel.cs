@@ -1,6 +1,6 @@
 ﻿using WireBrainCoffee.CustomersApp.Model;
 
-namespace WireBrainCoffee.CustomersApp.ViewModel
+namespace WireBrainCoffee.CustomersApp.ViewModels
 {
     public class CustomerItemViewModel : ViewModelBase
     {

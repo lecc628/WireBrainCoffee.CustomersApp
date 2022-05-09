@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace WireBrainCoffee.CustomersApp.ViewModel
+namespace WireBrainCoffee.CustomersApp.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace WireBrainCoffee.CustomersApp.ViewModel
+namespace WireBrainCoffee.CustomersApp.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
