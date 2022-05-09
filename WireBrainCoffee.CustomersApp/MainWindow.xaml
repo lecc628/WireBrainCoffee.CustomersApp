@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WireBrainCoffee.CustomersApp"
         xmlns:controls="clr-namespace:WireBrainCoffee.CustomersApp.Controls"
         xmlns:views="clr-namespace:WireBrainCoffee.CustomersApp.Views"
         xmlns:viewModels="clr-namespace:WireBrainCoffee.CustomersApp.ViewModels"
@@ -14,6 +13,9 @@
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:CustomersViewModel}">
             <views:CustomersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ProductsViewModel}">
+            <views:ProductsView/>
         </DataTemplate>
     </Window.Resources>
     <Grid>
