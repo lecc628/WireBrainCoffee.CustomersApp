@@ -55,15 +55,15 @@
                 <Style TargetType="TextBox" x:Key="TextBoxBaseStyle">
                     <Setter Property="Padding" Value="5"/>
                 </Style>
-                <Style BasedOn="{StaticResource TextBoxBaseStyle}"  TargetType="TextBox" x:Key="TextBoxStyle">
+                <Style BasedOn="{StaticResource TextBoxBaseStyle}" TargetType="TextBox">
                     <Setter Property="Background" Value="#555555"/>
                     <Setter Property="Foreground" Value="White"/>
                 </Style>
             </StackPanel.Resources>
             <Label>Firstname:</Label>
-            <TextBox Text="{Binding SelectedCustomer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}"/>
+            <TextBox Text="{Binding SelectedCustomer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label>Lastname:</Label>
-            <TextBox Text="{Binding SelectedCustomer.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}"/>
+            <TextBox Text="{Binding SelectedCustomer.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <CheckBox Content="Is developer" Margin="0 10 0 0"
                       IsChecked="{Binding SelectedCustomer.IsDeveloper, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
