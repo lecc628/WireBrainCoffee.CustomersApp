@@ -6,5 +6,10 @@
     <Style BasedOn="{StaticResource TextBoxBaseStyle}" TargetType="TextBox">
         <Setter Property="Background" Value="#555555"/>
         <Setter Property="Foreground" Value="White"/>
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="#111111"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
