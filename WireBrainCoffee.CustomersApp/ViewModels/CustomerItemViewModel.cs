@@ -39,6 +39,15 @@ namespace WireBrainCoffee.CustomersApp.ViewModels
             {
                 _model.LastName = value;
                 OnPropertyChanged();
+
+                if (string.IsNullOrEmpty(_model.LastName))
+                {
+                    AddError("Lastname is require");
+                }
+                else
+                {
+                    ClearErrors();
+                }
             }
         }
 
