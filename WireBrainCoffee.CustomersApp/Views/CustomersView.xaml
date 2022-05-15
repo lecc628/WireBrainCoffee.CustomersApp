@@ -11,7 +11,7 @@
         <converters:NavigationSideToGridColumnConverter x:Key="NavigationSideToGridColumnConv"/>
         <DataTemplate x:Key="CustomerDataTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding FirstName, Mode=OneWay}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding FirstName, Mode=OneWay, ValidatesOnNotifyDataErrors=False}" FontWeight="Bold"/>
                 <TextBlock Text="{Binding LastName, Mode=OneWay}" Margin="5 0 0 0"/>
             </StackPanel>
         </DataTemplate>
