@@ -4,12 +4,7 @@ using WireBrainCoffee.CustomersApp.Model;
 
 namespace WireBrainCoffee.CustomersApp.Data
 {
-    public interface ICustomerDataProvider
-    {
-        Task<IEnumerable<Customer>?> GetAllAsync();
-    }
-
-    public class CustomerDataProvider : ICustomerDataProvider
+    public class CustomerDataProvider : IDataProvider<Customer>
     {
         public async Task<IEnumerable<Customer>?> GetAllAsync()
         {

@@ -10,7 +10,7 @@ namespace WireBrainCoffee.CustomersApp.ViewModels
 {
     public class CustomersViewModel : ViewModelBase
     {
-        private readonly ICustomerDataProvider _customerDataProvider;
+        private readonly IDataProvider<Customer> _customerDataProvider;
 
         private CustomerItemViewModel? _selectedCustomer;
         private GridLength _gridFirstColumnWidth;
@@ -19,7 +19,7 @@ namespace WireBrainCoffee.CustomersApp.ViewModels
         private double _gridLastColumnMinWidth;
         private NavigationSideOption _navigationSide;
 
-        public CustomersViewModel(ICustomerDataProvider customerDataProvider)
+        public CustomersViewModel(IDataProvider<Customer> customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
 

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using WireBrainCoffee.CustomersApp.Data;
+using WireBrainCoffee.CustomersApp.Model;
 using WireBrainCoffee.CustomersApp.ViewModels;
 
 namespace WireBrainCoffee.CustomersApp
@@ -35,8 +36,8 @@ namespace WireBrainCoffee.CustomersApp
             services.AddTransient<CustomersViewModel>();
             services.AddTransient<ProductsViewModel>();
 
-            services.AddTransient<ICustomerDataProvider, CustomerDataProvider>();
-            services.AddTransient<IProductDataProvider, ProductDataProvider>();
+            services.AddTransient<IDataProvider<Customer>, CustomerDataProvider>();
+            services.AddTransient<IDataProvider<Product>, ProductDataProvider>();
 
             return services.BuildServiceProvider();
         }
